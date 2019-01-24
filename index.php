@@ -9,16 +9,16 @@
 
 		public function FilterLoginСredentials(&$sEmail, &$sLogin, &$sPassword)
 		{
-			$sMapping = \trim($this->Config()->Get('plugin', 'mapping_table', ''));
+			$sMapping = trim($this->Config()->Get('plugin', 'mapping_table', ''));
 
 			if (is_file($sMapping) && is_readable($sMapping)) {
 				$sMapping = file_get_contents($sMapping);
 
 				if (empty($sMapping) === false) {
-					$aLines = \preg_split('/\v+/', $sMapping);
+					$aLines = preg_split('/\v+/', $sMapping);
 
 					foreach ($aLines as $sLine) {
-						$aData = \preg_split('/\h+/', trim($sLine));
+						$aData = preg_split('/\h+/', trim($sLine));
 
 						if (isset($aData[0], $aData[1]) && $aData[0] === $sEmail && preg_match('/^[0-9a-z_\.\-]+$/i', $aData[1])) {
 							$sLogin = $aData[1];
