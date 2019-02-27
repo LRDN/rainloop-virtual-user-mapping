@@ -8,7 +8,7 @@ Installation
 
 Clone this repository into your plugins directory.
 
-```
+```sh
 git clone https://github.com/lrdn/rainloop-virtual-user-mapping.git virtual-user-mapping
 ```
 
